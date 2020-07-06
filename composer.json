@@ -1,0 +1,25 @@
+{
+    "name": "amoungui/contact-form",
+    "description": "This is the Ecommerce package",
+    "license": "MIT",
+    "authors": [{
+        "name": "Amoungui Serge",
+        "email": "samoungui@gmail.com"
+    }],
+    "minimum-stability": "dev",
+    "require": {
+        "illuminate/support": "^5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Scaffolder\\Ecommerce\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Scaffolder\\Ecommerce\\EcommerceServiceProvider"
+            ]
+        }
+    }
+}
