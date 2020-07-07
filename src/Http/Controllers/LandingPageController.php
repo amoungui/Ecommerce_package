@@ -3,6 +3,7 @@
 namespace Scaffolder\Ecommerce\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Scaffolder\Ecommerce\Product;
 
 /**
  * Description of ContactController
@@ -12,7 +13,9 @@ use App\Http\Controllers\Controller;
 class LandingPageController extends Controller {
 
     public function index(){
-        return view('ecommerce::home');
+        $products = Product::inRandomOrder()->take(8)->get();
+
+        return view('ecommerce::ecommerce/partials/landing-page')->with('products', $products);
     }
 
 }
