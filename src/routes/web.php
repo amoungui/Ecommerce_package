@@ -22,6 +22,10 @@ Route::group(['namespace' => 'Scaffolder\Ecommerce\Http\Controllers'], function 
     Route::get('/shop/{product}', 'ShopController@show')->name('shop.show');
 });
 
-Route::view('/cart', 'cart');
+Route::group(['namespace' => 'Scaffolder\Ecommerce\Http\Controllers'], function () {
+    Route::get('/cart', 'CartController@index')->name('cart.index'); 
+    Route::get('/shop/{product}', 'ShopController@show')->name('shop.show');
+});
+
 Route::view('/checkout', 'checkout');
 Route::view('/thankyou', 'thankyou');

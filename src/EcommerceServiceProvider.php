@@ -14,6 +14,7 @@ class EcommerceServiceProvider extends ServiceProvider{
         //defined the file which are going to be published
         $this->publishes([
             __DIR__.'/views' => resource_path('views/ecommerce'),
+            __DIR__.'/assets' => resource_path('public/assets'),
             __DIR__.'/database/migrations/2020_07_07_034602_create_products_table.php' => base_path('database/migrations/2020_07_07_034602_create_products_table.php'),
             __DIR__.'/database/seeds/DatabaseSeeder.php' => base_path('database/seeds/DatabaseSeeder.php'),
             __DIR__.'/database/seeds/ProductsTableSeeder.php' => base_path('database/seeds/ProductsTableSeeder.php'),

@@ -1,12 +1,16 @@
 <?php
-
 namespace Scaffolder\Ecommerce\Http\Controllers;
 
 use Scaffolder\Ecommerce\Product;
 use App\Http\Controllers\Controller;
+use Scaffolder\Ecommerce\Repositories\ShopRepository;
 
-class ShopController extends Controller
-{
+class ShopController extends Controller {
+    
+    public function __construct(ShopRepository $shopRepository) {
+        $this->ShopRepository = $shopRepository;
+    }    
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +18,7 @@ class ShopController extends Controller
      */
     public function index()
     {
-        $products = Product::inRandomOrder()->take(12)->get();
+        $products = $this->ShopRepository->inRandomOrderItem(9);
 
         return view('ecommerce::ecommerce/partials/shop')->with('products', $products);
     }
@@ -27,8 +31,8 @@ class ShopController extends Controller
      */
     public function show($slug)
     {
-        $product = Product::where('slug', $slug)->firstOrFail();
-        $mightAlsoLike = Product::where('slug', '!=', $slug)->inRandomOrder()->take(4)->get();
+        $product = $this->ShopRepository->getFirstOrFailWithSlug($slug);
+        $mightAlsoLike = $this->ShopRepository->getFirstOrFailWithSlugDif($slug, 4);
 
         return view('ecommerce::ecommerce/partials/product')->with([
             'product' => $product,

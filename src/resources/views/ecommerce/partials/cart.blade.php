@@ -1,10 +1,7 @@
-@extends('layout')
+@extends('ecommerce::ecommerce/layouts.layout')
 
 @section('title', 'Shopping Cart')
 
-@section('extra-css')
-
-@endsection
 
 @section('content')
 
@@ -195,7 +192,6 @@
 
     </div> <!-- end cart-section -->
 
-    @include('partials.might-like')
-
+    @include('ecommerce::ecommerce/partials/sections.might-like')
 
 @endsection
