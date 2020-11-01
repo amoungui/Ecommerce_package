@@ -1,5 +1,5 @@
 {
-    "name": "amoungui/Ecommerce",
+    "name": "amoungui/ecommerce",
     "description": "This is the Ecommerce package",
     "license": "MIT",
     "authors": [{
@@ -8,11 +8,17 @@
     }],
     "minimum-stability": "dev",
     "require": {
-        "illuminate/support": "^5"
+        "illuminate/support": "^7",
+        "laravelcollective/html": "^6.2"
     },
     "autoload": {
         "psr-4": {
             "Scaffolder\\Ecommerce\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Scaffolder\\Ecommerce\\Tests\\": "tests/"
         }
     },
     "extra": {
@@ -21,5 +27,9 @@
                 "Scaffolder\\Ecommerce\\EcommerceServiceProvider"
             ]
         }
+    },
+    "require-dev": {
+        "orchestra/testbench": "5.x-dev",
+        "phpunit/phpunit": "8.5.x-dev"
     }
 }
